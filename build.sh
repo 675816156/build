@@ -11,7 +11,7 @@ MACHINE=raspberrypi4-64
 ROOTDIR=$(readlink -f $BASH_SOURCE | xargs dirname)
 DOWNLOADS="$ROOTDIR/downloads"
 CACHES="$ROOTDIR/sstate-cache"
-PROJECT_DIR=$ROOTDIR/build
+PROJECT_DIR=$ROOTDIR/output_$MACHINE
 
 [ -e $DOWNLOADS ] || mkdir -p $DOWNLOADS
 [ -e $CACHES ] || mkdir -p $CACHES
