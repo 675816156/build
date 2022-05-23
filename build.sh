@@ -40,7 +40,15 @@ SSTATE_DIR = "$CACHES"
 EOF
 
 LAYER_LIST="
+poky/meta
+poky/meta-poky
+poky/meta-yocto-bsp
 meta-raspberrypi
+meta-openembedded/meta-oe
+meta-openembedded/meta-python
+meta-openembedded/meta-multimedia
+meta-openembedded/meta-networking
+meta-myrpi
 "
 
 # add layers
@@ -55,5 +63,9 @@ for layer in $(eval echo $LAYER_LIST); do
     fi
 done
 
-time tsocks bitbake core-image-minimal
+#time bitbake core-image-base
+#time bitbake core-image-base -c populate_sdk
 
+#cd ~/yocto/poky/rpi-build/tmp/deploy/sdk
+#sudo ./poky-glibc-x86_64-core-image-base-cortexa72-raspberrypi4-64-toolchain-3.2.1.sh
+#source /opt/poky/3.2.1/environment-setup-cortexa72-poky-linux
